@@ -1,0 +1,9 @@
+<h1>Admin Statistics</h1>
+
+<p>Total plays: {{ total_plays }}</p>
+
+<ul>
+{% for s in stats %}
+    <li>Story {{ s.story_id }} : {{ s.count }} plays</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,13 @@
+<h1>My Play History</h1>
+
+<ul>
+{% for play in plays %}
+    <li>
+        Story ID: {{ play.story_id }} |
+        Ending page: {{ play.ending_page_id }} |
+        Date: {{ play.created_at }}
+    </li>
+{% empty %}
+    <li>No plays yet.</li>
+{% endfor %}
+</ul>

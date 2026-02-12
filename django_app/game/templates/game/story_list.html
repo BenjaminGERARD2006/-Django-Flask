@@ -1,0 +1,50 @@
+{% extends "game/base.html" %}
+
+{% block content %}
+
+<h1>Stories</h1>
+
+{% for s in stories %}
+<div class="card">
+
+    <h2>{{ s.title }}</h2>
+
+    <p>{{ s.description }}</p>
+
+    <a href="/play/{{ s.id }}">
+        <button>Play</button>
+    </a>
+
+    <hr>
+
+    <h4>⭐ Rate</h4>
+    <form method="post" action="{% url 'rate_story' s.id %}">
+        {% csrf_token %}
+        <select name="stars">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button type="submit">Rate</button>
+    </form>
+
+    <h4>💬 Comment</h4>
+    <form method="post" action="{% url 'add_comment' s.id %}">
+        {% csrf_token %}
+        <input type="text" name="text" placeholder="Write a comment">
+        <button type="submit">Comment</button>
+    </form>
+
+    <h4>🚩 Report</h4>
+    <form method="post" action="{% url 'report_story' s.id %}">
+        {% csrf_token %}
+        <input type="text" name="reason" placeholder="Reason">
+        <button type="submit">Report</button>
+    </form>
+
+</div>
+{% endfor %}
+
+{% endblock %}

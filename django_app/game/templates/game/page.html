@@ -1,0 +1,25 @@
+{% extends "game/base.html" %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Story Page</h2>
+
+    <p>{{ page.text }}</p>
+
+    {% if page.is_ending %}
+        <h3>🎉 Ending reached!</h3>
+        <a href="/"><button>Back to stories</button></a>
+    {% else %}
+        <h4>Choices:</h4>
+        {% for choice in page.choices %}
+            <a href="/page/{{ choice.next_page_id }}">
+                <button>{{ choice.text }}</button>
+            </a>
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+{% endblock %}

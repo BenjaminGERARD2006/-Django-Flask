@@ -1,0 +1,15 @@
+<h1>Statistics</h1>
+
+<h2>Plays per story</h2>
+<ul>
+{% for story, count in story_counts.items %}
+    <li>Story {{ story }} : {{ count }} plays</li>
+{% endfor %}
+</ul>
+
+<h2>Ending distribution</h2>
+<ul>
+{% for ending, count in ending_counts.items %}
+    <li>Ending {{ ending }} : {{ count }} times</li>
+{% endfor %}
+</ul>
