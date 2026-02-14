@@ -214,6 +214,3 @@ Django & Flask architecture practice
 
 ---
 
-## 📄 License
-
-Educational project.
